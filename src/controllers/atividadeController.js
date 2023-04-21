@@ -28,7 +28,7 @@ exports.concluida = async(req, res) => {
         concluido: true
       }
     });        //rota para atividades concluida busca apenas atividades concluida
-    res.json( { atividades: lista });  
+    res.json( lista );  
   })();
 };
 
@@ -43,19 +43,19 @@ exports.deletar = async(req, res) => {
   });  
   if (pag == 'false') {           //esse if é para saber se está na pagina de pendente ou concluidas assim manterá na mesma pagina    
     if (lista != null) {
-      res.json( { atividades: lista });  
+      res.json(  lista );  
     }
   }
   else {
     (async () => {              
       if (lista != null) {
-        res.json( { atividades: lista });  
+        res.json(  lista );  
       }; 
     })();
   }
 };
 
-exports.concluir = async function(req, res) {
+exports.concluir = async function(req, res) {  
   if(!req.params.id) return res.render('404');
     const id = req.params.id
     let concluido = false
@@ -72,12 +72,12 @@ exports.concluir = async function(req, res) {
       }
     });  
     if (concluido == true) {   // if semelhante ao da rota de exclusao , em vez de criar outra rota usei o if para manter na mesma rota                              
-      res.json( { atividades: lista });  
+      res.json(  lista );  
     }
     else {
       (async () => {
         if (lista != null) {                    
-          res.json( { atividades: lista });  
+          res.json( lista );  
         }; 
       })();
   }

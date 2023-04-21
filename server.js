@@ -6,7 +6,11 @@ const database = require('./src/models/db');
 const routes = require('./routes');
 const path = require('path');
 const { middlewareGlobal } = require('./src/middlewares/middleware');
-
+const cors = require('cors');
+app.use(cors({
+   origin: true
+})
+);
 (async () => {
   try {
       const resultado = await database.sync();
@@ -30,6 +34,7 @@ app.set('view engine', 'ejs');
 // Nossos próprios middlewares
 app.use(middlewareGlobal);
 app.use(routes);
+
 
 app.on('pronto', () => {
   app.listen(3000, () => {

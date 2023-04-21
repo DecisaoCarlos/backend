@@ -4,7 +4,7 @@ const homeController = require('./src/controllers/homeController');
 const atividadeController = require('./src/controllers/atividadeController');
 
 // Rotas da home
-route.get('/', homeController.paginaInicial);
+route.get('/:status', homeController.paginaInicial);
 
 
 
