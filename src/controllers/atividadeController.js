@@ -9,13 +9,14 @@ exports.start = (req, res) => {
 
 
 exports.register = async(req, res) => {
-  console.log(req.body);
+  console.log(req);
+  console.log('cheguei');
   const today = new Date();  
   const resultadoCreate = await Atividade.create({
     descricao: req.body.atividade,
     concluido: false,
 })
-  res.render('inserir');
+  res.json('');
 };
 
 exports.concluida = async(req, res) => {
@@ -60,13 +61,18 @@ exports.concluir = async function(req, res) {
     const id = req.params.id
     let concluido = false
     let status = req.params.status
+    let ordena = 'updatedAt';
     if(status == 'false'){
       concluido = true
-    }
+      ordena = 'createdAt';
+    }    
     const atividade = await Atividade.findByPk(id);
     atividade.concluido = concluido;
     const resultadoSave = await atividade.save();  
     const lista = await Atividade.findAll({
+      order:[
+        [ ordena, 'DESC'],
+      ],
       where: {
         concluido: status
       }
