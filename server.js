@@ -9,20 +9,19 @@ const { middlewareGlobal } = require('./src/middlewares/middleware');
 const cors = require('cors');
 app.use(cors({
    origin: true
-})
+  })
 );
+
 (async () => {
   try {
       const resultado = await database.sync();
     //  console.log(resultado);
-      app.emit('pronto');   
-   
+      app.emit('pronto');      
   } catch (error) {
     //  console.log(error);
-  }
-
-  
+  }  
 })();
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -37,8 +36,7 @@ app.use(routes);
 
 
 app.on('pronto', () => {
-  app.listen(3000, () => {
-    console.log('Acessar http://localhost:3000');
+  app.listen(3000, () => {    
     console.log('Servidor executando na porta 3000');
   });
 });

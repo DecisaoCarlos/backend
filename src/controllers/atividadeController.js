@@ -1,66 +1,66 @@
 const Atividade = require('../models/atividade');
 const Sequelize = require('sequelize');
-exports.start = (req, res) => {
-  res.render('inserir', {
-    body: {}
-  });
-};
 
 
-
-exports.register = async(req, res) => {
-  console.log(req);
-  console.log('cheguei');
-  const today = new Date();  
-  const resultadoCreate = await Atividade.create({
-    descricao: req.body.atividade,
-    concluido: false,
-})
-  res.json('');
-};
-
-exports.concluida = async(req, res) => {
-  (async () => {        
-    const lista = await Atividade.findAll({
+exports.buscar = (req, res) => {
+  let pag = req.params.status;  
+  let ordena = 'updatedAt';
+  if(pag == 'false'){
+    ordena = 'createdAt';
+  }    
+  (async () => {              
+    const result = await Atividade.findAll({
       order:[
-        [ 'updatedAt', 'DESC'],
+        [ ordena, 'DESC'],
       ],
       where: {
-        concluido: true
+        concluido: pag
       }
-    });        //rota para atividades concluida busca apenas atividades concluida
-    res.json( lista );  
+    });      
+      res.json(   result );      
   })();
-};
+}
+
+exports.register = async(req, res) => {
+  let id = req.body.id; // if para saber se será create ou alter
+  if(id){    
+    const atividade = await Atividade.findByPk(id);
+    atividade.descricao = req.body.descricao;
+    const resultadoSave = await atividade.save();  
+  } else {
+    const today = new Date();  
+    const resultadoCreate = await Atividade.create({
+      descricao: req.body.descricao,
+      concluido: false,
+    })
+  }
+  res.json('');
+}; //falta preencher o retorno melhor
 
 exports.deletar = async(req, res) => {
   let id = req.params.iddel;
   let pag = req.params.statusdel;
   await Atividade.destroy({ where: { id: id }});
+  let ordena = 'updatedAt';
+  if(pag == 'false'){    
+    ordena = 'createdAt';
+  }    
   const lista = await Atividade.findAll({
+    order:[
+      [ ordena, 'DESC'],
+    ],
     where: {
       concluido: pag
     }
-  });  
-  if (pag == 'false') {           //esse if é para saber se está na pagina de pendente ou concluidas assim manterá na mesma pagina    
-    if (lista != null) {
-      res.json(  lista );  
-    }
-  }
-  else {
-    (async () => {              
-      if (lista != null) {
-        res.json(  lista );  
-      }; 
-    })();
-  }
+  });           
+  res.json(  lista );  
 };
 
 exports.concluir = async function(req, res) {  
   if(!req.params.id) return res.render('404');
-    const id = req.params.id
-    let concluido = false
+    const id = req.params.id   
     let status = req.params.status
+    let concluido = false
     let ordena = 'updatedAt';
     if(status == 'false'){
       concluido = true
@@ -77,14 +77,5 @@ exports.concluir = async function(req, res) {
         concluido: status
       }
     });  
-    if (concluido == true) {   // if semelhante ao da rota de exclusao , em vez de criar outra rota usei o if para manter na mesma rota                              
-      res.json(  lista );  
-    }
-    else {
-      (async () => {
-        if (lista != null) {                    
-          res.json( lista );  
-        }; 
-      })();
-  }
+    res.json(  lista );      
 };
