@@ -21,21 +21,26 @@ exports.buscar = (req, res) => {
   })();
 }
 
-exports.register = async(req, res) => {
+exports.register = async(req, res) => {  
+  let descricao = req.body.descricao;
   let id = req.body.id; // if para saber se será create ou alter
   if(id){    
     const atividade = await Atividade.findByPk(id);
-    atividade.descricao = req.body.descricao;
-    const resultadoSave = await atividade.save();  
+    if (atividade){
+      atividade.descricao = descricao;
+      const resultadoSave = await atividade.save(); 
+    } 
   } else {
     const today = new Date();  
     const resultadoCreate = await Atividade.create({
-      descricao: req.body.descricao,
+      descricao: descricao,
       concluido: false,
     })
   }
   res.json('');
 }; //falta preencher o retorno melhor
+
+
 
 exports.deletar = async(req, res) => {
   let id = req.params.iddel;
