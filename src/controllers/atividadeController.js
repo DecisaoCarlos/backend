@@ -22,8 +22,7 @@ exports.buscar = (req, res) => {
 }
 
 exports.register = async(req, res) => {
-  //cadu
-  console.log('cadu');
+
   let descricao = req.body.descricao;
   let id = req.body.id; // if para saber se será create ou alter
   if(id){    
