@@ -22,7 +22,6 @@ exports.buscar = (req, res) => {
 }
 
 exports.register = async(req, res) => {
-  console.log(req.body);
   let descricao = req.body.descricao;
   let id = req.body.id; // if para saber se será create ou alter
   if(id){    
