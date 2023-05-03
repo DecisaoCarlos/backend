@@ -3,9 +3,9 @@ const Sequelize = require('sequelize');
 
 
 exports.buscar = (req, res) => {
-  let pag = req.params.status;  
+  let pag = req.body.estadoDaAtividade;  
   let ordena = 'updatedAt';
-  if(pag == 'false'){
+  if(pag == false){
     ordena = 'createdAt';
   }    
   (async () => {              
@@ -43,13 +43,11 @@ exports.register = async(req, res) => {
 
 
 exports.deletar = async(req, res) => {
+  console.log(req.params)
   let id = req.params.iddel;
-  let pag = req.params.statusdel;
-  await Atividade.destroy({ where: { id: id }});
-  let ordena = 'updatedAt';
-  if(pag == 'false'){    
-    ordena = 'createdAt';
-  }    
+  let pag = false
+  await Atividade.destroy({ where: { id: id }}); 
+    ordena = 'createdAt';     
   const lista = await Atividade.findAll({
     order:[
       [ ordena, 'DESC'],
@@ -61,13 +59,13 @@ exports.deletar = async(req, res) => {
   res.json(  lista );  
 };
 
-exports.concluir = async function(req, res) {  
-  if(!req.params.id) return res.render('404');
-    const id = req.params.id   
-    let status = req.params.status
+exports.atualizar = async function(req, res) {  
+  if(!req.body.id) return res.render('404');
+    let id = req.body.id   
+    let status = req.body.estadoDaAtividade
     let concluido = false
     let ordena = 'updatedAt';
-    if(status == 'false'){
+    if(status == false){
       concluido = true
       ordena = 'createdAt';
     }    
