@@ -2,11 +2,11 @@
 const express = require('express');
 const app = express();
 const Sequelize = require('sequelize');
-const database = require('./src/models/db');
+const database = require('../../core/repositorios/db');
 const routes = require('./routes');
 const path = require('path');
-const { middlewareGlobal } = require('./src/middlewares/middleware');
 const cors = require('cors');
+
 app.use(cors({
    origin: true
   })
@@ -15,28 +15,18 @@ app.use(cors({
 (async () => {
   try {
       const resultado = await database.sync();
-    //  console.log(resultado);
       app.emit('pronto');      
   } catch (error) {
-    //  console.log(error);
+      console.log(error);
   }  
 })();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
-app.use(express.static(path.resolve(__dirname, 'public')));
-
-app.set('views', path.resolve(__dirname, 'src', 'views'));
-app.set('view engine', 'ejs');
-
-// Nossos próprios middlewares
-app.use(middlewareGlobal);
 app.use(routes);
 
 
 app.on('pronto', () => {
   app.listen(3000, () => {    
-    console.log('Servidor executando na porta 3000');
+    console.log('Servidor executando');
   });
 });

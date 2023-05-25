@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const database = require('./db');
+const database = require('../../core/repositorios/db');
 
 const Atividade = database.define('atividade', {
     id: {
