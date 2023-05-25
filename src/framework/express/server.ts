@@ -1,11 +1,12 @@
-
-const express = require('express');
+import 'express-async-errors';
+import express from 'express';
+import cors from 'cors';
+import { Sequelize } from 'sequelize';
 const app = express();
-const Sequelize = require('sequelize');
+
 const database = require('../../core/repositorios/db');
 const routes = require('./routes');
 const path = require('path');
-const cors = require('cors');
 
 app.use(cors({
    origin: true
@@ -13,7 +14,7 @@ app.use(cors({
 );
 
 (async () => {
-  try {
+  try { 
       const resultado = await database.sync();
       app.emit('pronto');      
   } catch (error) {
