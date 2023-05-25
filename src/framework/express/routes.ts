@@ -1,6 +1,6 @@
 const express = require('express');
 const route = express.Router();
-import { GetAtividadeControle } from '../../aplicacao/controllers/get-atividade/get-atividade';
+import { GetAtividadeControle } from '../../aplicacao/controllers/get-atividade/get-atividadecontroler';
 import { SequelizeGetAtividadeRepositorio } from "../../core/repositorios/buscarAtividade";
 
 // Rotas

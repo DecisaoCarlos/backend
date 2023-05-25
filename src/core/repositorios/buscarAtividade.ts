@@ -2,7 +2,7 @@ const Atividade = require('../../framework/sequelize/atividade');
 const Sequelize = require('sequelize');
 
 export class SequelizeGetAtividadeRepositorio {
-  async getUsers(): Promise<Atividade[]> {
+  async getAtividades(): Promise<Atividade[]> {
     const result = Atividade.findAll({
       order:[
       
