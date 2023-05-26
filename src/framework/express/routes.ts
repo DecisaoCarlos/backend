@@ -1,16 +1,14 @@
+
 const express = require('express');
 const route = express.Router();
 import { GetAtividadeControle } from '../../aplicacao/controllers/get-atividade/get-atividadecontroler';
 import { SequelizeGetAtividadeRepositorio } from "../../core/repositorios/buscarAtividade";
 
 // Rotas
+//route.post('/atividade/listar-atividade',  GetAtividadeControle);
 route.post('/atividade/listar-atividade', async (req, res) => {
-
-    const sequelizeGetAtividadeRepositorio = new SequelizeGetAtividadeRepositorio();
-    const getAtividadesController = new GetAtividadeControle(sequelizeGetAtividadeRepositorio);
-    const { body, statusCode } = await getAtividadesController.handle();
-    res.status(statusCode).send(body);
-
+    const getAtividadesController = new GetAtividadeControle(req, res);
+    getAtividadesController.handle();
 });
 /*route.post('/atividade/cadastrar',  input.register);
 route.patch('/atividade/atualizar-atividade',  input.atualizar);

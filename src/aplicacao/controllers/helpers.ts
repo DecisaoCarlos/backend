@@ -20,6 +20,6 @@ export const badRequest = (message: string): HttpResponse<string> => {
 export const serverError = (): HttpResponse<string> => {
   return {
     statusCode: HttpStatusCode.SERVER_ERROR,
-    body: "comunicação ruim",
+    body: "Json Invalido",    
   };
 };
