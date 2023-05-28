@@ -2,7 +2,7 @@ var Sequelize = require('sequelize');
 const database = require('../../core/repositorios/db');
 import { DATE } from "sequelize";
 
-const Atividade = database.define('atividade', {
+const SeqAtividade = database.define('atividade', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -16,8 +16,7 @@ const Atividade = database.define('atividade', {
     concluido: {
         type: Sequelize.BOOLEAN,
         allowNull: false          
-    },
-    descricao: Sequelize.STRING
+    },    
 })
 
 export interface Atividade {
@@ -34,4 +33,4 @@ export interface Atividade {
     updatedAt: Date
 }
 
-module.exports = Atividade;
+module.exports = SeqAtividade;

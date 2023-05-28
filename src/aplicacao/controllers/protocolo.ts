@@ -6,7 +6,7 @@ export interface HttpResponse<T> {
   export interface HttpRequest<B> {
     params?: any;
     headers?: any;
-    body: B;
+    body?: B;
   }
   
   export enum HttpStatusCode {
@@ -14,4 +14,7 @@ export interface HttpResponse<T> {
     CREATED = 201,
     BAD_REQUEST = 400,
     SERVER_ERROR = 500,
+  }
+  export interface IGetatividade {
+    estadoDaAtividade: boolean;
   }

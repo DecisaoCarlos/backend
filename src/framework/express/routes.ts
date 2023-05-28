@@ -7,7 +7,7 @@ import { SequelizeGetAtividadeRepositorio } from "../../core/repositorios/buscar
 // Rotas
 //route.post('/atividade/listar-atividade',  GetAtividadeControle);
 route.post('/atividade/listar-atividade', async (req, res) => {
-    const getAtividadesController = new GetAtividadeControle(req, res);
+    const getAtividadesController = new GetAtividadeControle({ body: req.body}, res);
     getAtividadesController.handle();
 });
 /*route.post('/atividade/cadastrar',  input.register);
