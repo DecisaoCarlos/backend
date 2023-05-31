@@ -1,4 +1,5 @@
 export interface HttpResponse<T> {
+    status(statusCode: HttpStatusCode): unknown;
     statusCode: HttpStatusCode;
     body: T;
   }
@@ -16,5 +17,6 @@ export interface HttpResponse<T> {
     SERVER_ERROR = 500,
   }
   export interface IGetatividade {
+    id?:number;
     estadoDaAtividade: boolean;
   }

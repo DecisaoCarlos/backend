@@ -20,6 +20,7 @@ const SeqAtividade = database.define('atividade', {
 })
 
 export interface Atividade {
+    indexOf(arg0: number): unknown;
     /**
      * Identificador da atividade
      */

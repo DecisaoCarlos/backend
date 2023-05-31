@@ -1,17 +1,26 @@
 
 const express = require('express');
 const route = express.Router();
-import { GetAtividadeControle } from '../../aplicacao/controllers/get-atividade/get-atividadecontroler';
-import { SequelizeGetAtividadeRepositorio } from "../../core/repositorios/buscarAtividade";
+import { PostAtividadeController } from '../../aplicacao/controllers/Post-Atividade/Post-Atividade-Controler';
+import { GetAtividadeControle } from '../../aplicacao/controllers/Get-Atividade/Get-Atividade-Controler';
+import { PatchAtividadeControle } from '../../aplicacao/controllers/Patch-Atividade/Patch-Atividade-Controler';
 
 // Rotas
-//route.post('/atividade/listar-atividade',  GetAtividadeControle);
 route.post('/atividade/listar-atividade', async (req, res) => {
-    const getAtividadesController = new GetAtividadeControle({ body: req.body}, res);
+    const getAtividadesController = new GetAtividadeControle({ body: req.body }, res);
     getAtividadesController.handle();
 });
-/*route.post('/atividade/cadastrar',  input.register);
-route.patch('/atividade/atualizar-atividade',  input.atualizar);
+
+route.post('/atividade/cadastrar',  async (req, res) => {
+    const postAtividadesController = new PostAtividadeController({ body: req.body }, res);
+    postAtividadesController.handle();
+});
+
+
+route.patch('/atividade/atualizar-atividade', async (req, res) => {
+    const patchAtividadesController = new PatchAtividadeControle({ body: req.body }, res);
+    patchAtividadesController.handle();
+});/*
 route.delete('/atividade/deletar/:iddel',  input.deletar);*/
 module.exports = route;
 
