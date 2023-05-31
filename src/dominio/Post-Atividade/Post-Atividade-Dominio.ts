@@ -9,5 +9,5 @@ export class PostAtividadeDominio {
         sequelizeCreateAtividadeRepositorio.CreateAtividade(atividade);
         return
     }
-    
+
 }

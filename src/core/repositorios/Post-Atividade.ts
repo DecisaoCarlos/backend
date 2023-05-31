@@ -9,5 +9,5 @@ export class PostAtividadeRepositorio {
             concluido: false,
         })
     }
-    
+
 }

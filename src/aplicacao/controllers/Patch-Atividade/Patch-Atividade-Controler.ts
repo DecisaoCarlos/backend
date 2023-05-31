@@ -20,7 +20,6 @@ export class PatchAtividadeControle {
       patchatividadevalida.validabody(this.httpRequest, this.HttpResponse);
 
       //dominio/casos de uso>repositorio>>banco
- 
       const atividades = await patchAtividadeDominio.handle(this.httpRequest.body);
       const { body, statusCode } = ok<Atividade[]>(atividades);
 

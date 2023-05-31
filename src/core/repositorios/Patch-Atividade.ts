@@ -15,7 +15,7 @@ export class PatchAtividadeRepositorio {
     const atividade = await SeqAtividade.findByPk(input?.id);
     atividade.concluido = estadoDaAtividade;
     const resultadoSave = await atividade.save();
-   
+
   }
 
 }

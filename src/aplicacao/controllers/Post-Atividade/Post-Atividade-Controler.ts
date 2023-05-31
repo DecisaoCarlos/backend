@@ -2,7 +2,7 @@ import { response } from 'express';
 import { PostAtividadeOutput } from '../../output/Post-Atividade/Post-Atividade-Output';
 import { PostAtividadeDominio } from '../../../dominio/Post-Atividade/Post-Atividade-Dominio';
 import { PostAtividadeInput } from '../../input/Post-Atividade/Post-Atividade-Input';
-import { created} from '../helpers';
+import { created } from '../helpers';
 import { HttpRequest, HttpResponse } from '../protocolo';
 import { Atividade } from "src/framework/sequelize/atividade";
 
@@ -21,9 +21,9 @@ export class PostAtividadeController {
             //dominio/casos de uso>repositorio>>banco            
             postAtividadeDominio.handle(this.httpRequest.body);
 
-             //chama output com os dados para tratar saida             
-             const { body, statusCode } = created<Atividade>('sucesso')             
-             postAtividadeOutput.output(this.HttpResponse, body, statusCode);
+            //chama output com os dados para tratar saida             
+            const { body, statusCode } = created<Atividade>('sucesso')
+            postAtividadeOutput.output(this.HttpResponse, body, statusCode);
 
         } catch (error) {
             return
