@@ -10,7 +10,7 @@ export class PatchAtividadeControle {
   constructor(private httpRequest: HttpRequest<B>, private HttpResponse: HttpResponse<string>) { }
 
 
-  async handle(): Promise<void> {
+  public async handle(): Promise<void> {
     try {
 
       const patchatividadevalida = new PatchAtividadeInput();

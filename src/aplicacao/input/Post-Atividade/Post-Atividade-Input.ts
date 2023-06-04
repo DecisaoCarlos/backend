@@ -5,7 +5,7 @@ import { serverError } from '../../controllers/helpers';
 
 export class PostAtividadeInput {
 
-    validabody(request: HttpRequest<Atividade>, response: HttpResponse<string>): void {
+    public validabody(request: HttpRequest<Atividade>, response: HttpResponse<string>): void {
         const requiredFields = ["descricao"];
         if (requiredFields in request.body) {
             if (request.body?.descricao != null && request.body?.descricao !== undefined) {

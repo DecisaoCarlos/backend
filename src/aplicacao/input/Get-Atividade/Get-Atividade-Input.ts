@@ -4,7 +4,7 @@ import { GetAtividadeOutput } from '../../output/Get-Atividade/Get-Atividade-Out
 import { HttpRequest, IGetatividade, HttpResponse } from '../../controllers/protocolo';
 
 export class GetAtividadeInput {
-    validabody(request: HttpRequest<IGetatividade>, response: HttpResponse<string>): void {
+    public validabody(request: HttpRequest<IGetatividade>, response: HttpResponse<string>): void {
         const requiredFields = ["estadoDaAtividade"];
         if (requiredFields in request.body) {
             if (request.body != null && request.body !== undefined) {

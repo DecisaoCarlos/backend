@@ -10,7 +10,7 @@ export class GetAtividadeControle {
   constructor(private httpRequest: HttpRequest<B>, private HttpResponse: HttpResponse<string>) { }
 
 
-  async handle(): Promise<void> {
+  public async handle(): Promise<void> {
     try {
       const getatividadevalida = new GetAtividadeInput();
       const getAtividadeOutput = new GetAtividadeOutput();

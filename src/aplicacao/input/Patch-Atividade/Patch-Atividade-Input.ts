@@ -4,7 +4,7 @@ import { PatchAtividadeOutput } from '../../output/Patch-Atividade/Patch-Ativida
 import { HttpRequest, IGetatividade, HttpResponse } from '../../controllers/protocolo';
 
 export class PatchAtividadeInput {
-    validabody(request: HttpRequest<IGetatividade>, response: HttpResponse<string>): void {
+    public validabody(request: HttpRequest<IGetatividade>, response: HttpResponse<string>): void {
         const requiredFields = ["estadoDaAtividade", "id"];
         let valido = 0
         requiredFields.forEach(function (field) {

@@ -6,7 +6,7 @@ export class GetAtividadeDominio {
 
   constructor() { }
 
-  async handle(IGetatividade: IGetatividade): Promise<Atividade[]> {
+  public async handle(IGetatividade: IGetatividade): Promise<Atividade[]> {
 
     const sequelizeGetAtividadeRepositorio = new GetAtividadeRepositorio();
     const atividades = await sequelizeGetAtividadeRepositorio.getAtividades(IGetatividade);

@@ -18,5 +18,6 @@ export interface HttpResponse<T> {
   }
   export interface IGetatividade {
     id?:number;
+    descricao?: string;
     estadoDaAtividade: boolean;
   }

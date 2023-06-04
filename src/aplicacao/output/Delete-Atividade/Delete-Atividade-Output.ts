@@ -2,7 +2,7 @@ import { serverError } from '../../controllers/helpers';
 import { Atividade } from '../../../framework/sequelize/atividade';
 import { HttpResponse, HttpStatusCode } from '../../controllers/protocolo';
 
-export class PatchAtividadeOutput {
+export class DeleteAtividadeOutput {
 
     public output(httpResponse: HttpResponse<string>, body: string | Atividade[], statusCode: HttpStatusCode): void {
 

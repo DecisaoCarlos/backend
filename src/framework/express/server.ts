@@ -1,12 +1,10 @@
 import 'express-async-errors';
 import express from 'express';
 import cors from 'cors';
-import { Sequelize } from 'sequelize';
-const app = express();
 
 const database = require('../../core/repositorios/db');
 const routes = require('./routes');
-const path = require('path');
+const app = express();
 
 app.use(cors({
    origin: true

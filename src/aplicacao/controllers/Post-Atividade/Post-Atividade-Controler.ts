@@ -10,7 +10,7 @@ import { Atividade } from "src/framework/sequelize/atividade";
 export class PostAtividadeController {
     constructor(private httpRequest: HttpRequest<Atividade>, private HttpResponse: HttpResponse<string>) { }
 
-    async handle(): Promise<void> {
+    public async handle(): Promise<void> {
         try {
             const postAtividadeInput = new PostAtividadeInput()
             const postAtividadeDominio = new PostAtividadeDominio()
