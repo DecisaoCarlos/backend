@@ -1,10 +1,10 @@
 const SeqAtividade = require('../../framework/sequelize/atividade');
-import { IGetatividade } from 'src/aplicacao/controllers/protocolo';
+import { IGetatividade, HttpRequest } from 'src/aplicacao/controllers/protocolo';
 import { Atividade } from '../../framework/sequelize/atividade';
 export class GetAtividadeRepositorio {
 
-  public async getAtividades(IGetatividade: IGetatividade): Promise<Atividade[]> {
-    const isconcluido = IGetatividade.estadoDaAtividade
+  public async getAtividades(iGetatividade: IGetatividade): Promise<Atividade[]> {
+    const isconcluido = iGetatividade.estadoDaAtividade    
     let order = 'createdAt'
     if (isconcluido === true) {
       order = 'updatedAt'
