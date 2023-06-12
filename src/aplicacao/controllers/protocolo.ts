@@ -27,3 +27,6 @@ export interface HttpResponse<T> {
     estadoDaAtividade?: boolean;
     id:number;
   }
+  export interface IDeleteatividade {
+    id:number;
+  }

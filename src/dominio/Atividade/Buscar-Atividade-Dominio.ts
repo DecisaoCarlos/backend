@@ -1,6 +1,6 @@
 import { HttpRequest, IGetatividade } from '../../aplicacao/controllers/protocolo';
 import { Atividade } from "src/framework/sequelize/atividade";
-import { GetAtividadeRepositorio } from "../../core/repositorios/Get-Atividade";
+import { GetAtividadeRepositorio } from "../../core/repositorios/Buscar-Atividade";
 
 export class GetAtividadeDominio {
 

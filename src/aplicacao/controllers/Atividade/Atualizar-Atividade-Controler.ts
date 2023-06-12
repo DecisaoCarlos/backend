@@ -1,7 +1,7 @@
 import { HttpRequest, IPatchatividade } from '../protocolo';
-import { PatchAtividadeInput } from "../../input/Atividade/Patch-Atividade-Input"
-import { PatchAtividadeOutput } from "../../output/Atividade/Patch-Atividade-Output"
-import { PatchAtividadeDominio } from '../../../dominio/Patch-Atividade /Patch-Atividade-Dominio';
+import { PatchAtividadeInput } from "../../input/Atividade/Atualizar-Atividade-Input"
+import { PatchAtividadeOutput } from "../../output/Atividade/Atualizar-Atividade-Output"
+import { PatchAtividadeDominio } from '../../../dominio/Atividade/Atualizar-Atividade-Dominio';
 
 
 export class PatchAtividadeControle {

@@ -1,6 +1,6 @@
-import { PostAtividadeOutput } from '../../output/Atividade/Post-Atividade-Output';
-import { PostAtividadeDominio } from '../../../dominio/Post-Atividade/Post-Atividade-Dominio';
-import { PostAtividadeInput } from '../../input/Atividade/Post-Atividade-Input';
+import { PostAtividadeOutput } from '../../output/Atividade/Cadastrar-Atividade-Output';
+import { PostAtividadeDominio } from '../../../dominio/Atividade/Cadastrar-Atividade-Dominio';
+import { PostAtividadeInput } from '../../input/Atividade/Cadastrar-Atividade-Input';
 import { HttpRequest } from '../protocolo';
 import { Atividade } from "src/framework/sequelize/atividade";
 

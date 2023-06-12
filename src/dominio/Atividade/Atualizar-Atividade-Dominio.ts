@@ -1,5 +1,5 @@
 import { IPatchatividade } from '../../aplicacao/controllers/protocolo';
-import { PatchAtividadeRepositorio } from '../../core/repositorios/Patch-Atividade';
+import { PatchAtividadeRepositorio } from '../../core/repositorios/Atualizar-Atividade';
 
 
 export class PatchAtividadeDominio {

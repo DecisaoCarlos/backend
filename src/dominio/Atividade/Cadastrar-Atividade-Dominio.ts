@@ -1,5 +1,5 @@
 import { IPostatividade } from '../../aplicacao/controllers/protocolo';
-import { PostAtividadeRepositorio } from "../../core/repositorios/Post-Atividade";
+import { PostAtividadeRepositorio } from "../../core/repositorios/Cadastrar-Atividade";
 
 export class PostAtividadeDominio {
 

@@ -1,15 +1,18 @@
-import { Atividade } from "src/framework/sequelize/atividade";
 import { HttpResponse, HttpStatusCode } from "./protocolo";
 
-export const ok = <T>(body: any): HttpResponse<T> => ({
-  statusCode: HttpStatusCode.OK,
-  body,
-});
+export const ok = <T>(body: any): HttpResponse<T> => {
+  return {
+    statusCode: HttpStatusCode.OK,
+    body,
+  };
+};
 
-export const created = <T>(body: any): HttpResponse<T> => ({
-  statusCode: HttpStatusCode.CREATED,
-  body,
-});
+export const created = <T>(body: any): HttpResponse<T> => {
+  return {
+    statusCode: HttpStatusCode.CREATED,
+    body,
+  };
+};
 
 export const badRequest = (message: string): HttpResponse<string> => {
   return {
