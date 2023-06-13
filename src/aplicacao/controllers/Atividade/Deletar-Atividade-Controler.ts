@@ -3,6 +3,7 @@ import { DeleteAtividadeInput } from '../../input/Atividade/Deletar-Atividade-In
 import { DeleteAtividadeDominio } from '../../../dominio/Atividade/Deletar-Atividade-Dominio';
 
 
+
 export class DeleteAtividadeController {
   constructor() { }
 

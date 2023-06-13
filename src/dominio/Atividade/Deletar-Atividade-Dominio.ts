@@ -1,6 +1,5 @@
-import { Atividade } from '../../framework/sequelize/atividade';
-import { HttpRequest, IDeleteatividade, IGetatividade } from '../../aplicacao/controllers/protocolo';
-import { DeleteAtividadeRepositorio } from '../../core/repositorios/Deletar-Atividade'
+import { IDeleteatividade } from '../../aplicacao/controllers/protocolo';
+import { DeleteAtividadeRepositorio } from '../../core/repositorios/Atividade'
 
 export class DeleteAtividadeDominio {
 

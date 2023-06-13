@@ -1,14 +1,14 @@
-import { HttpRequest, IGetatividade } from '../../aplicacao/controllers/protocolo';
-import { Atividade } from "src/framework/sequelize/atividade";
-import { GetAtividadeRepositorio } from "../../core/repositorios/Buscar-Atividade";
+import {IGetatividade } from '../../aplicacao/controllers/protocolo';
+import { Atividade } from "../Models/Atividade";
+import { BuscarAtividadeRepositorio } from "../../core/repositorios/Atividade";
 
-export class GetAtividadeDominio {
+export class BuscarAtividadeDominio {
 
   constructor() { }
 
   public async handle(IGetatividade: IGetatividade): Promise<Atividade[]> {
 
-    const sequelizeGetAtividadeRepositorio = new GetAtividadeRepositorio();
+    const sequelizeGetAtividadeRepositorio = new BuscarAtividadeRepositorio();
     return await sequelizeGetAtividadeRepositorio.getAtividades(IGetatividade);
   }
 }

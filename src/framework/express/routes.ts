@@ -1,7 +1,7 @@
 import { Response, Request, Router } from 'express'
-import { PostAtividadeController } from '../../aplicacao/controllers/Atividade/Cadastrar-Atividade-Controler';
-import { GetAtividadeControle } from '../../aplicacao/controllers/Atividade/Buscar-Atividade-Controler';
-import { PatchAtividadeControle } from '../../aplicacao/controllers/Atividade/Atualizar-Atividade-Controler';
+import { CadastrarAtividadeController } from '../../aplicacao/controllers/Atividade/Cadastrar-Atividade-Controler';
+import { BuscarAtividadeControle } from '../../aplicacao/controllers/Atividade/Buscar-Atividade-Controler';
+import { AtualizarAtividadeControle } from '../../aplicacao/controllers/Atividade/Atualizar-Atividade-Controler';
 import { DeleteAtividadeController } from '../../aplicacao/controllers/Atividade/Deletar-Atividade-Controler';
 import { validaErro } from '../../aplicacao/controllers/helpers';
 import { HttpStatusCode } from '../../aplicacao/controllers/protocolo';
@@ -10,7 +10,7 @@ const route = Router();
 
 route.post('/atividade/listar-atividade', async (req: Request, res: Response) => {
     try {
-        const getAtividadesController = new GetAtividadeControle();
+        const getAtividadesController = new BuscarAtividadeControle();
         const atividades = await getAtividadesController.handle({ body: req.body, });
         res.status(HttpStatusCode.OK).send(atividades);
 
@@ -22,7 +22,7 @@ route.post('/atividade/listar-atividade', async (req: Request, res: Response) =>
 
 route.post('/atividade/cadastrar', async (req: Request, res: Response) => {
     try {
-        const postAtividadesController = new PostAtividadeController();
+        const postAtividadesController = new CadastrarAtividadeController();
         postAtividadesController.handle({ body: req.body });
         res.status(HttpStatusCode.CREATED).send('Sucesso');
     } catch (error) {
@@ -34,7 +34,7 @@ route.post('/atividade/cadastrar', async (req: Request, res: Response) => {
 
 route.patch('/atividade/atualizar-atividade', async (req: Request, res: Response) => {
     try {
-        const patchAtividadesController = new PatchAtividadeControle();
+        const patchAtividadesController = new AtualizarAtividadeControle();
         patchAtividadesController.handle({ body: req.body });
         res.status(HttpStatusCode.OK).send('Atividade atualizada');
     } catch (error) {

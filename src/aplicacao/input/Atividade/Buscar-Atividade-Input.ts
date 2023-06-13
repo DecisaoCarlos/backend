@@ -1,7 +1,7 @@
 import { HttpRequest } from 'src/aplicacao/controllers/protocolo';
 import { IGetatividade } from '../../controllers/protocolo';
 
-export class GetAtividadeInput {
+export class BuscarAtividadeInput {
     public estadoDaAtividade: boolean;
     constructor(body: HttpRequest<IGetatividade>) {
         const requiredFields = ['estadoDaAtividade'];

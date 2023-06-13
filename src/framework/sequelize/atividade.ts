@@ -19,19 +19,5 @@ const SeqAtividade = database.define('atividade', {
     },    
 })
 
-export interface Atividade {
-
-    /**
-     * Identificador da atividade
-     */
-    id?: number
-    /**
-     * Descrição da atividade
-     */
-    descricao: string
-    concluido: boolean
-    createdAt: Date
-    updatedAt: Date
-}
 
 module.exports = SeqAtividade;

@@ -1,17 +1,18 @@
+import { Atividade } from '../../../dominio/Models/Atividade'
 import { PostAtividadeOutput } from '../../output/Atividade/Cadastrar-Atividade-Output';
-import { PostAtividadeDominio } from '../../../dominio/Atividade/Cadastrar-Atividade-Dominio';
-import { PostAtividadeInput } from '../../input/Atividade/Cadastrar-Atividade-Input';
+import { CadastrarAtividadeDominio } from '../../../dominio/Atividade/Cadastrar-Atividade-Dominio';
+import { CadastrarAtividadeInput } from '../../input/Atividade/Cadastrar-Atividade-Input';
 import { HttpRequest } from '../protocolo';
-import { Atividade } from "src/framework/sequelize/atividade";
 
 
-export class PostAtividadeController {
+
+export class CadastrarAtividadeController {
     constructor() { }
 
     public async handle(httpRequest: HttpRequest<Atividade>): Promise<void> {
 
-        const postAtividadeInput = new PostAtividadeInput(httpRequest)
-        const postAtividadeDominio = new PostAtividadeDominio()
+        const postAtividadeInput = new CadastrarAtividadeInput(httpRequest)
+        const postAtividadeDominio = new CadastrarAtividadeDominio()
         postAtividadeDominio.handle(postAtividadeInput);
 //        const postAtividadeOutput = new PostAtividadeOutput();
 

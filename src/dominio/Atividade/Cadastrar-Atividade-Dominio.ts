@@ -1,10 +1,10 @@
 import { IPostatividade } from '../../aplicacao/controllers/protocolo';
-import { PostAtividadeRepositorio } from "../../core/repositorios/Cadastrar-Atividade";
+import { CadastrarAtividadeRepositorio } from "../../core/repositorios/Atividade";
 
-export class PostAtividadeDominio {
+export class CadastrarAtividadeDominio {
 
     public async handle(atividade: IPostatividade): Promise<void> {
-        const sequelizeCreateAtividadeRepositorio = new PostAtividadeRepositorio();
+        const sequelizeCreateAtividadeRepositorio = new CadastrarAtividadeRepositorio();
         sequelizeCreateAtividadeRepositorio.CreateAtividade(atividade);
         return
     }

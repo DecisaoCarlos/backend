@@ -1,11 +1,11 @@
 import { IPatchatividade } from '../../aplicacao/controllers/protocolo';
-import { PatchAtividadeRepositorio } from '../../core/repositorios/Atualizar-Atividade';
+import { AtualizarAtividadeRepositorio } from '../../core/repositorios/Atividade';
 
 
-export class PatchAtividadeDominio {
+export class AtualizarAtividadeDominio {
 
     public async handle(atividade: IPatchatividade): Promise<void> {
-        const sequelizeCreateAtividadeRepositorio = new PatchAtividadeRepositorio();
+        const sequelizeCreateAtividadeRepositorio = new AtualizarAtividadeRepositorio();
         const datividade = sequelizeCreateAtividadeRepositorio.AlterarConcluidoAtividade(atividade);
         return
     }

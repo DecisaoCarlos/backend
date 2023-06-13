@@ -1,6 +1,6 @@
 import { HttpRequest, IPostatividade } from '../../controllers/protocolo';
 
-export class PostAtividadeInput {
+export class CadastrarAtividadeInput {
     public descricao: string = '';
     constructor(request: HttpRequest<IPostatividade>) {        
         const requiredFields = ["descricao"];

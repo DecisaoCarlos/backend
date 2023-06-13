@@ -1,6 +1,6 @@
 import { HttpRequest, IPatchatividade } from '../../controllers/protocolo';
 
-export class PatchAtividadeInput {
+export class AtualizarAtividadeInput {
     public estadoDaAtividade: boolean | undefined;
     public descricao: string = '';
     public id: number = 0;
