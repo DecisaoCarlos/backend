@@ -9,15 +9,13 @@ export class BuscarAtividadeControle {
   constructor() { }
 
 
-  public async handle(httpRequest: HttpRequest<IGetatividade>): Promise<Atividade[] > {
+  public async handle(httpRequest: HttpRequest<IGetatividade>): Promise<Atividade[]> {
 
     const getatividadeinput = new BuscarAtividadeInput(httpRequest);
     const getAtividadeDominio = new BuscarAtividadeDominio()
     const atividades = await getAtividadeDominio.handle(getatividadeinput);
     const getatividadeoutput = new BuscarAtividadeOutput(atividades);
-
-  //console.log(getatividadeoutput.patividades)
-    return getatividadeoutput.patividades
+    return getatividadeoutput.atividades
 
   }
 }

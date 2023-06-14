@@ -2,7 +2,7 @@ import { Atividade } from '../../../dominio/Models/Atividade';
 
 export class BuscarAtividadeOutput {
 
-    constructor(public patividades: Atividade[]) {
+    constructor(public atividades: Atividade[]) {
         ///preciso fazer o map para pegar apenas id,descricao,concluido
     }
 

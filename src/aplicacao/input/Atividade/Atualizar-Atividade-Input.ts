@@ -6,7 +6,7 @@ export class AtualizarAtividadeInput {
     public id: number = 0;
 
     constructor(httpBody: HttpRequest<IPatchatividade>) {
-        const requiredFields = ["estadoDaAtividade", "id", "descricao"];
+        const requiredFields = ["estadoaAtividade", "id", "descricao"];
         if (httpBody.body != null && httpBody.body !== undefined) {
             for (let campo of requiredFields) {
                 if (campo in httpBody.body) {

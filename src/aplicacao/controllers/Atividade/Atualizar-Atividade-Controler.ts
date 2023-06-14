@@ -9,17 +9,10 @@ export class AtualizarAtividadeControle {
 
 
   public async handle(httpBody:HttpRequest<IPatchatividade>): Promise<void> {
-    try {
-
       const patchAtividadeInput = new AtualizarAtividadeInput(httpBody);            
       const patchAtividadeDominio = new AtualizarAtividadeDominio()       
        await patchAtividadeDominio.handle(patchAtividadeInput);
        const tualizarAtividadeOutput = new AtualizarAtividadeOutput(patchAtividadeInput);
        return tualizarAtividadeOutput.retorno
-    }
-    catch (error) {
-      return
-    }
-
   }
 }

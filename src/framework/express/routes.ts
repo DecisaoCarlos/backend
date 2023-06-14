@@ -22,7 +22,7 @@ route.post('/atividade/listar-atividade', async (req: Request, res: Response) =>
 route.post('/atividade/cadastrar', async (req: Request, res: Response) => {
     try {
         const postAtividadesController = new CadastrarAtividadeController();
-        const output = postAtividadesController.handle({ body: req.body });
+        const output = await postAtividadesController.handle({ body: req.body });
         res.status(HttpStatusCode.CREATED).send(output);
     } catch (error) {
         const retorno = validaErro(error)
@@ -34,9 +34,10 @@ route.post('/atividade/cadastrar', async (req: Request, res: Response) => {
 route.patch('/atividade/atualizar-atividade', async (req: Request, res: Response) => {
     try {
         const patchAtividadesController = new AtualizarAtividadeControle();
-        const output = patchAtividadesController.handle({ body: req.body });
+        const output = await patchAtividadesController.handle({ body: req.body });
         res.status(HttpStatusCode.OK).send(output);
     } catch (error) {
+        console.log('erro')
         const retorno = validaErro(error)
         res.status(retorno.codigo).send(retorno.descricao);
     }
@@ -46,7 +47,7 @@ route.delete('/atividade/deletar/:iddel', async (req: Request, res: Response) =>
     try {
         const deleteAtividadeController = new DeleteAtividadeController();
         const id = parseInt(req?.params?.id)
-        const output = deleteAtividadeController.handle(id);
+        const output = await deleteAtividadeController.handle(id);
         res.status(HttpStatusCode.OK).send(output);
     } catch (error) {
         const retorno = validaErro(error)
