@@ -7,7 +7,7 @@ import { IDeleteatividade } from "src/aplicacao/controllers/protocolo";
 const SeqAtividade = require('../../framework/sequelize/atividade');
 
 export class AtualizarAtividadeRepositorio {
-    public async AlterarConcluidoAtividade(input: IPatchatividade): Promise<void> {
+    public async AlterarConcluidoAtividade(input: IPatchatividade): Promise<void> {      
         const isconcluido = input.estadoDaAtividade
         let estadoDaAtividade = true
         if (isconcluido === true) {

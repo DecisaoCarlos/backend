@@ -13,11 +13,9 @@ export class DeleteAtividadeController {
       const deleteAtividadeInput = new DeleteAtividadeInput(id)
       const deleteAtividadeDominio = new DeleteAtividadeDominio()
       deleteAtividadeDominio.handle(deleteAtividadeInput);
-
-      //  deleteAtividadeDominio.handle(this.httpRequest.body);
-
-      //    const deleteAtividadeOutput = new DeleteAtividadeOutput();
-
+      const deleteAtividadeOutput = new DeleteAtividadeOutput(deleteAtividadeInput);
+      return deleteAtividadeOutput.retorno
+      
     } catch (error) {
       return
     }

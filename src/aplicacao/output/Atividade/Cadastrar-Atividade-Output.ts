@@ -1,8 +1,9 @@
+import { IPostatividade } from "src/aplicacao/controllers/protocolo";
 
 export class PostAtividadeOutput {
-
-    constructor() {
-        ///preciso fazer o map para pegar apenas id,descricao,concluido
+    retorno :any;
+    constructor(public atividade: IPostatividade) {          
+        this.retorno = {Mensagem: 'Atividade ' + atividade.descricao + ' criada com sucesso'}
     }
 
 }

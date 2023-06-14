@@ -14,8 +14,7 @@ export class CadastrarAtividadeController {
         const postAtividadeInput = new CadastrarAtividadeInput(httpRequest)
         const postAtividadeDominio = new CadastrarAtividadeDominio()
         postAtividadeDominio.handle(postAtividadeInput);
-//        const postAtividadeOutput = new PostAtividadeOutput();
-
-        return
+        const postAtividadeOutput = new PostAtividadeOutput(postAtividadeInput);
+        return postAtividadeOutput.retorno        
     }
 }

@@ -1,8 +1,9 @@
+import { IPatchatividade } from "src/aplicacao/controllers/protocolo";
 
 export class AtualizarAtividadeOutput {
-
-    constructor() {
-
+    retorno:any;
+    constructor(public atividade:IPatchatividade) {
+        this.retorno = {Mensagem: 'Atividade ' + atividade.id + ' atualizada com sucesso'}
         
     }
 }
