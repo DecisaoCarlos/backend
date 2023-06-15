@@ -8,11 +8,11 @@ export class AtualizarAtividadeControle {
   constructor() { }
 
 
-  public async handle(httpBody:HttpRequest<IPatchatividade>): Promise<void> {
-      const patchAtividadeInput = new AtualizarAtividadeInput(httpBody);            
-      const patchAtividadeDominio = new AtualizarAtividadeDominio()       
-       await patchAtividadeDominio.handle(patchAtividadeInput);
-       const tualizarAtividadeOutput = new AtualizarAtividadeOutput(patchAtividadeInput);
-       return tualizarAtividadeOutput.retorno
+  public async handle(httpBody: HttpRequest<IPatchatividade>): Promise<void> {
+    const patchAtividadeInput = new AtualizarAtividadeInput(httpBody);
+    const patchAtividadeDominio = new AtualizarAtividadeDominio()
+    await patchAtividadeDominio.handle(patchAtividadeInput);
+    const atualizarAtividadeOutput = new AtualizarAtividadeOutput(patchAtividadeInput);
+    return atualizarAtividadeOutput.retorno
   }
 }
