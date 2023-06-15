@@ -37,7 +37,6 @@ route.patch('/atividade/atualizar-atividade', async (req: Request, res: Response
         const output = await patchAtividadesController.handle({ body: req.body });
         res.status(HttpStatusCode.OK).send(output);
     } catch (error) {
-        console.log('erro')
         const retorno = validaErro(error)
         res.status(retorno.codigo).send(retorno.descricao);
     }
