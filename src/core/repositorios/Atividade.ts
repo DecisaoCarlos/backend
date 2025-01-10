@@ -54,7 +54,7 @@ export class CadastrarAtividadeRepositorio {
 }
 
 export class DeleteAtividadeRepositorio {
-    public async DeleteAtividade(id: IDeleteatividade) {
+    public async DeleteAtividade(id: IDeleteatividade) {        
         await SeqAtividade.destroy({ where: { id: id.id } });
     }
 }

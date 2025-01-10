@@ -45,7 +45,7 @@ route.patch('/atividade/atualizar-atividade', async (req: Request, res: Response
 route.delete('/atividade/deletar/:iddel', async (req: Request, res: Response) => {
     try {
         const deleteAtividadeController = new DeleteAtividadeController();
-        const id = parseInt(req?.params?.id)
+        const id = parseInt(req?.params?.iddel)        
         const output = await deleteAtividadeController.handle(id);
         res.status(HttpStatusCode.OK).send(output);
     } catch (error) {
